@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SigmaMath</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <button id="settingsToggle" class="secondary-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 15.5C13.933 15.5 15.5 13.933 15.5 12C15.5 10.067 13.933 8.5 12 8.5C10.067 8.5 8.5 10.067 8.5 12C8.5 13.933 10.067 15.5 12 15.5Z" fill="currentColor"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.43 12.98C19.5 12.66 19.5 12.33 19.5 12C19.5 11.67 19.5 11.34 19.43 11.02L21.54 9.62C21.73 9.5 21.78 9.25 21.67 9.04L19.67 5.96C19.56 5.74 19.33 5.64 19.11 5.71L16.88 6.3C16.24 5.84 15.54 5.44 14.78 5.14L14.39 2.71C14.36 2.5 14.19 2.36 14 2.36H10C9.81 2.36 9.64 2.5 9.61 2.71L9.22 5.14C8.46 5.44 7.76 5.84 7.12 6.3L4.89 5.71C4.67 5.64 4.44 5.74 4.33 5.96L2.33 9.04C2.22 9.25 2.27 9.5 2.46 9.62L4.57 11.02C4.5 11.34 4.5 11.67 4.5 12C4.5 12.33 4.5 12.66 4.57 12.98L2.46 14.38C2.27 14.5 2.22 14.75 2.33 14.96L4.33 18.04C4.44 18.26 4.67 18.36 4.89 18.29L7.12 17.7C7.76 18.16 8.46 18.56 9.22 18.86L9.61 21.29C9.64 21.5 9.81 21.64 10 21.64H14C14.19 21.64 14.36 21.5 14.39 21.29L14.78 18.86C15.54 18.56 16.24 18.16 16.88 17.7L19.11 18.29C19.33 18.36 19.56 18.26 19.67 18.04L21.67 14.96C21.78 14.75 21.73 14.5 21.54 14.38L19.43 12.98ZM12 16.5C9.51 16.5 7.5 14.49 7.5 12C7.5 9.51 9.51 7.5 12 7.5C14.49 7.5 16.5 9.51 16.5 12C16.5 14.49 14.49 16.5 12 16.5Z" fill="currentColor"/>
+          </svg>
+          Settings
+        </button>
+      </div>
+      <h1>SigmaMath</h1>
+      <div class="theme-toggle">
+        <label class="switch">
+          <input type="checkbox" id="logToggle">
+          <span class="slider"></span>
+        </label>
+        <span>Enable Calculation History</span>
+      </div>
+    </header>
+
+    <main>
+      <div class="calculator-container">
+        <div class="expression-input">
+          <input type="text" id="expression" placeholder="Enter mathematical expression...">
+          <button id="calculate" class="primary-btn">Calculate</button>
+        </div>
+
+        <div class="display">
+          <div class="previous-operand"></div>
+          <div class="current-operand">0</div>
+        </div>
+
+        <div class="quick-functions">
+          <button class="fn" data-fn="sin">sin</button>
+          <button class="fn" data-fn="cos">cos</button>
+          <button class="fn" data-fn="tan">tan</button>
+          <button class="fn" data-fn="log">log</button>
+          <button class="fn" data-fn="ln">ln</button>
+          <button class="fn" data-fn="sqrt">√</button>
+          <button class="fn" data-fn="pow">^</button>
+          <button class="fn" data-fn="factorial">!</button>
+          <button class="fn" data-fn="abs">|x|</button>
+          <button class="fn" data-fn="exp">e^x</button>
+          <button class="fn" data-fn="floor">⌊x⌋</button>
+          <button class="fn" data-fn="ceil">⌈x⌉</button>
+        </div>
+
+        <div class="operations">
+          <button class="operation" data-operation="+">+</button>
+          <button class="operation" data-operation="-">-</button>
+          <button class="operation" data-operation="×">×</button>
+          <button class="operation" data-operation="÷">÷</button>
+          <button class="operation" data-operation="%">%</button>
+          <button class="clear" data-action="clear">Clear</button>
+          <button class="secondary-btn" data-action="delete">Del</button>
+        </div>
+      </div>
+
+      <div class="history-panel" id="historyPanel">
+        <div class="history-header">
+          <h2>Calculation History</h2>
+          <div class="history-controls">
+            <button id="clearHistory" class="secondary-btn">Clear All</button>
+          </div>
+        </div>
+        <div class="history-list" id="historyList"></div>
+      </div>
+    </main>
+  </div>
+  
+  <!-- Settings Modal -->
+  <div id="settingsModal" class="settings-modal hidden">
+    <div class="settings-content">
+      <h2>Settings</h2>
+      <label for="themeSelect">Interface Theme:</label>
+      <select id="themeSelect">
+        <option value="default">Default</option>
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+        <option value="red">Red</option>
+        <option value="rainbow">Rainbow</option>
+      </select>
+      <button id="closeSettings" class="secondary-btn">Close</button>
+    </div>
+  </div>
+  
+  <script type="module" src="calculator.js"></script>
+</body>
+</html>
